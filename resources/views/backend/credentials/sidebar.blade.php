@@ -258,6 +258,53 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="sidebar-item {{ Route::is('tipno*') ? 'active' : '' }} has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-bookmark-plus-fill"></i>
+                        <span>Sindhi Tipno</span>
+                    </a>
+                    <ul class="submenu {{ Route::is('tipno*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Route::is('tipno-create') ? 'active' : '' }}">
+                            <a href="{{ route('tipno-create') }}">create</a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('tipno-list') ? 'active' : '' }}">
+                            <a href="{{ route('tipno-list') }}">list</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+
+                <li class="sidebar-item {{ Route::is('ebook*') ? 'active' : '' }} has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-bookmark-plus-fill"></i>
+                        <span>Ebook</span>
+                    </a>
+                    <ul class="submenu {{ Route::is('ebookcategory*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Route::is('ebookcategory-create') ? 'active' : '' }}">
+                            <a href="{{ route('ebookcategory-create') }}">Ebook Category List</a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('ebook-list') ? 'active' : '' }}">
+                            <a href="{{ route('ebook-list') }}">EBook list</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="sidebar-item {{ Route::is('story*') ? 'active' : '' }} has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-bookmark-plus-fill"></i>
+                        <span>Story</span>
+                    </a>
+                    <ul class="submenu {{ Route::is('story*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Route::is('story-create') ? 'active' : '' }}">
+                            <a href="{{ route('story-create') }}">create</a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('story-list') ? 'active' : '' }}">
+                            <a href="{{ route('story-list') }}">list</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="sidebar-item {{ Route::is('businesspromotion*') ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-bookmark-plus-fill"></i>
@@ -286,6 +333,24 @@
                         </li>
                     </ul>
                 </li>
+
+
+                <li class="sidebar-item {{ Route::is('temple*') ? 'active' : '' }} has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-bookmark-plus-fill"></i>
+                        <span>Temple History</span>
+                    </a>
+                    <ul class="submenu {{ Route::is('temple*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Route::is('temple-create') ? 'active' : '' }}">
+                            <a href="{{ route('temple-create') }}">create</a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('temple-list') ? 'active' : '' }}">
+                            <a href="{{ route('temple-list') }}">list</a>
+                        </li>
+                    </ul>
+                </li>
+
+
                 <li class="sidebar-item {{ Route::is('team*') ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-bookmark-plus-fill"></i>

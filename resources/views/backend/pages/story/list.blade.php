@@ -57,35 +57,31 @@
                                 <thead>
                                     <tr>
 
-                                        <th scope="col">ID</th>
+                                        <th scope="col">User Name</th>
                                         <th scope="col">Title</th>
-
                                         <th scope="col">Description</th>
-                                        <th scope="col">Start Date</th>
-                                        <th scope="col">End Date</th>
-
+                                        <th scope="col"> Date</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tipno as $tipno)
+                                    @foreach ($story as $story)
                                         <tr>
-                                            <td>{{ $tipno->id }}</td>
-                                            <td>{{ $tipno->title }}</td>
+                                            <td>{{ $story->user->name }}</td>
+                                            <td>{{ $story->title }}</td>
 
-                                            <td>{{ $tipno->description }}</td>
-                                            <td>{{ $tipno->start }}</td>
-                                            <td>{{ $tipno->end}}</td>
+                                            <td>{{ $story->description }}</td>
+                                            <td>{{ $story->date }}</td>
                                             <td><img style="height:50px; width:50px;"
-                                                    src="{{ asset('/uploads/Tipno/' . $tipno->image) }}"
+                                                    src="{{ asset('/uploads/Story/' . $story->image) }}"
                                                     alt=""></td>
                                             <td>
                                                 <div style="display: flex; align-items: center;">
-                                                    <a href="{{ route('tipno-delete', ['id' => $tipno->id]) }}"
+                                                    <a href="{{ route('story-delete', ['id' => $story->id]) }}"
                                                         onclick="confirmation(event)" style="margin-right: 10px;"><i
                                                             class="bi bi-trash" style="color: red;font-size:20px"></i></a>
-                                                    <a href="{{ route('tipno-edit', ['id' => $tipno->id]) }}"><i
+                                                    <a href="{{ route('story-edit', ['id' => $story->id]) }}"><i
                                                             class="bi-pencil-square"
                                                             style="color: green;font-size:20px"></i></a>
                                                 </div>

@@ -23,11 +23,11 @@ alpha/css/bootstrap.css" rel="stylesheet">
                         <div class="col-md-12 col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Sindhi Tipno Form</h4>
+                                    <h4 class="card-title">Story Edit Form</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form form-vertical" action="{{ route('tipno-update', $tipno->id) }}" method="POST" enctype="multipart/form-data">
+                                        <form class="form form-vertical" action="{{ route('story-update', $story->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                             <div class="form-body">
@@ -36,7 +36,7 @@ alpha/css/bootstrap.css" rel="stylesheet">
                                                         <div class="form-group">
                                                             <label for="name">Title</label>
                                                             <input type="text" class="form-control" name="title"
-                                                                placeholder="Title" value="{{ $tipno->title }}"
+                                                                placeholder="Title" value="{{ $story->title }}"
                                                                 required>
                                                             @error('title')
                                                                 <div class="text-danger text-sm">
@@ -48,33 +48,22 @@ alpha/css/bootstrap.css" rel="stylesheet">
 
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label for="price">Start</label>
-                                                            <input autocomplete="off" type="text" id="starts_at" class="form-control" name="start" value="{{ $tipno->start }}" required>
+                                                            <label for="price">Date</label>
+                                                            <input autocomplete="off" type="text" id="starts_at" class="form-control" name="date" value="{{ $story->date }}" required>
                                                         </div>
-                                                        @error('start')
+                                                        @error('date')
                                                         <div class="text-danger text-sm">
                                                             <small>{{ $message }}</small>
                                                         </div>
                                                     @enderror
                                                     </div>
 
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <label for="price">End</label>
-                                                            <input autocomplete="off" type="text" id="expires_at" class="form-control" name="end" value="{{ $tipno->end }}" required>
-                                                           
-                                                        </div>
-                                                        @error('end')
-                                                        <div class="text-danger text-sm">
-                                                            <small>{{ $message }}</small>
-                                                        </div>
-                                                    @enderror
-                                                    </div>
+                                                   
                                                    
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label class="form-label">Description</label>
-                                                            <div id="editor">{{ $tipno->description }}</div>
+                                                            <div id="editor">{{ $story->description }}</div>
                                                             <input type="hidden" name="description" id="hidden-editor-input">
                                                         </div>
                                                     </div>
@@ -82,7 +71,7 @@ alpha/css/bootstrap.css" rel="stylesheet">
                                                           <div class="form-group">
                                                               <label for="image">Image</label>
                                                               <input type="file" class="form-control"  name="image" >
-                                                              <img style="height:50px; width:50px;" src="{{asset('/uploads/Tipno/'.$tipno->image)}}" alt="">
+                                                              <img style="height:50px; width:50px;" src="{{asset('/uploads/Story/'.$story->image)}}" alt="">
                                                             
                                                           </div>
                                                       </div>
@@ -91,7 +80,7 @@ alpha/css/bootstrap.css" rel="stylesheet">
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <button type="submit" name="submit"
                                                             class="btn btn-primary me-1 mb-1">
-                                                            Add Tipno
+                                                          Update Story
                                                         </button>
                                                         <button type="reset" class="btn btn-light-secondary me-1 mb-1">
                                                             Reset
@@ -149,12 +138,7 @@ alpha/css/bootstrap.css" rel="stylesheet">
                 format:'Y-m-d H:i:s',
             });
         });
-        $(document).ready(function(){
-            $('#expires_at').datetimepicker({
-                // options here
-                format:'Y-m-d H:i:s',
-            });
-        });
+      
     </script>
     
 @endsection

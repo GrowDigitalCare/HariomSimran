@@ -27,14 +27,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Media Center Table</h3>
+                        <h3>Ebook Table</h3>
 
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Media Center Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">Ebook Table</li>
                             </ol>
                         </nav>
                     </div>
@@ -43,11 +43,11 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        Media Center Table
+                        Ebook Table
                     </div>
                     <div class="">
-                        <a href="{{ route('mediacenter-create') }}" class="btn btn-success"
-                            style="float: right; margin-top: -51px; margin-right: 41px;">Add mediacenter</a>
+                        <a href="{{ route('ebook-create') }}" class="btn btn-success"
+                            style="float: right; margin-top: -51px; margin-right: 41px;">Add ebook</a>
 
                     </div>
 
@@ -57,35 +57,35 @@
                                 <thead>
                                     <tr>
 
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Title</th>
+                                        <th scope="col">Ebook ID</th>
+                                        <th scope="col">Ebook Title</th>
 
                                         <th scope="col">Description</th>
-                                        <th scope="col">Start Date</th>
-                                        <th scope="col">End Date</th>
+                                        <th scope="col">Link</th>
+                                        <th scope="col">Status</th>
 
                                         <th scope="col">Image</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tipno as $tipno)
+                                    @foreach ($ebook as $ebook)
                                         <tr>
-                                            <td>{{ $tipno->id }}</td>
-                                            <td>{{ $tipno->title }}</td>
+                                            <td>{{ $ebook->id }}</td>
+                                            <td>{{ $ebook->title }}</td>
 
-                                            <td>{{ $tipno->description }}</td>
-                                            <td>{{ $tipno->start }}</td>
-                                            <td>{{ $tipno->end}}</td>
+                                            <td>{{ $ebook->description }}</td>
+                                            <td>{{ $ebook->link }}</td>
+                                            <td>{{ $ebook->status == '1' ? 'Hidden' : 'Visible' }}</td>
                                             <td><img style="height:50px; width:50px;"
-                                                    src="{{ asset('/uploads/Tipno/' . $tipno->image) }}"
+                                                    src="{{ asset('/uploads/ebook/' . $ebook->image) }}"
                                                     alt=""></td>
                                             <td>
                                                 <div style="display: flex; align-items: center;">
-                                                    <a href="{{ route('tipno-delete', ['id' => $tipno->id]) }}"
+                                                    <a href="{{ route('ebook-delete', ['id' => $ebook->id]) }}"
                                                         onclick="confirmation(event)" style="margin-right: 10px;"><i
                                                             class="bi bi-trash" style="color: red;font-size:20px"></i></a>
-                                                    <a href="{{ route('tipno-edit', ['id' => $tipno->id]) }}"><i
+                                                    <a href="{{ route('ebook-edit', ['id' => $ebook->id]) }}"><i
                                                             class="bi-pencil-square"
                                                             style="color: green;font-size:20px"></i></a>
                                                 </div>

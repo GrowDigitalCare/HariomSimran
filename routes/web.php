@@ -9,8 +9,10 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Test\SubjectController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Backend\EbookController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\KathaController;
+use App\Http\Controllers\Backend\StoryController;
 use App\Http\Controllers\Test\QuestionController;
 use App\Http\Controllers\Backend\CareerController;
 use App\Http\Controllers\Backend\ArticleController;
@@ -24,10 +26,13 @@ use App\Http\Controllers\Backend\DepartmentController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Backend\Auth\SigninController;
 use App\Http\Controllers\Backend\MediaCenterController;
+use App\Http\Controllers\Backend\SindhiTipnoController;
 use App\Http\Controllers\Backend\AdminSettingController;
 use App\Http\Controllers\Backend\AnnouncementController;
 use App\Http\Controllers\Backend\CollaborationController;
+use App\Http\Controllers\Backend\EbookCategoryController;
 use App\Http\Controllers\Backend\JobClassifiedController;
+use App\Http\Controllers\Backend\TempleHistoryController;
 use App\Http\Controllers\Backend\LibraryCategoryController;
 use App\Http\Controllers\Student\StudentDashboardController;
 use App\Http\Controllers\Backend\BusinessPromotionController;
@@ -430,6 +435,73 @@ Route::middleware(['auth', 'redirect.only.admins'])->group(function () {
             Route::put('update/{id}', 'update')->name('update');
         });
     });
+
+
+
+    //Tipno Rooutes
+    Route::prefix('tipno')->as('tipno-')->group(function () {
+        Route::controller(SindhiTipnoController::class)->group(function () {
+            Route::get('/create', 'view')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/list', 'list')->name('list');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::put('update/{id}', 'update')->name('update');
+        });
+    });
+
+
+    Route::prefix('ebookcategory')->as('ebookcategory-')->group(function () {
+        Route::controller(EbookCategoryController::class)->group(function () {
+            Route::get('/create', 'view')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/list', 'show')->name('list');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::put('update/{id}', 'update')->name('update');
+        });
+    });
+
+    Route::prefix('ebook')->as('ebook-')->group(function () {
+        Route::controller(EbookController::class)->group(function () {
+            Route::get('/create', 'view')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/list', 'show')->name('list');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::put('update/{id}', 'update')->name('update');
+        });
+    });
+
+    //End Tipno Routes
+
+    //story routes
+    Route::prefix('story')->as('story-')->group(function () {
+        Route::controller(StoryController::class)->group(function () {
+            Route::get('/create', 'view')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/list', 'show')->name('list');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::put('update/{id}', 'update')->name('update');
+        });
+    });
+
+    //end story routes
+
+    //story routes
+    Route::prefix('temple')->as('temple-')->group(function () {
+        Route::controller(TempleHistoryController::class)->group(function () {
+            Route::get('/create', 'view')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/list', 'show')->name('list');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::put('update/{id}', 'update')->name('update');
+        });
+    });
+
+    //end story routes
 });
 
 

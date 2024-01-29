@@ -27,14 +27,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Media Center Table</h3>
+                        <h3>library Table</h3>
 
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Media Center Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">library Table</li>
                             </ol>
                         </nav>
                     </div>
@@ -43,11 +43,11 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        Media Center Table
+                        library Table
                     </div>
                     <div class="">
-                        <a href="{{ route('mediacenter-create') }}" class="btn btn-success"
-                            style="float: right; margin-top: -51px; margin-right: 41px;">Add mediacenter</a>
+                        <a href="{{ route('library-create') }}" class="btn btn-success"
+                            style="float: right; margin-top: -51px; margin-right: 41px;">Add library</a>
 
                     </div>
 
@@ -57,35 +57,34 @@
                                 <thead>
                                     <tr>
 
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Title</th>
+                                        <th scope="col">Category Name</th>
+                                        <th scope="col">Temple History Title</th>
 
                                         <th scope="col">Description</th>
-                                        <th scope="col">Start Date</th>
-                                        <th scope="col">End Date</th>
-
+                                        <th scope="col">Video Url</th>
                                         <th scope="col">Image</th>
+
+                                        {{-- <th scope="col">File</th> --}}
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tipno as $tipno)
+                                    @foreach ($temple as $temple)
                                         <tr>
-                                            <td>{{ $tipno->id }}</td>
-                                            <td>{{ $tipno->title }}</td>
-
-                                            <td>{{ $tipno->description }}</td>
-                                            <td>{{ $tipno->start }}</td>
-                                            <td>{{ $tipno->end}}</td>
+                                            <td>{{ $temple->category->title }}</td>
+                                            <td>{{ $temple->title }}</td>
+                                            <td>{{ $temple->description }}</td>
+                                            <td>{{ $temple->videourl }}</td>
                                             <td><img style="height:50px; width:50px;"
-                                                    src="{{ asset('/uploads/Tipno/' . $tipno->image) }}"
-                                                    alt=""></td>
+                                                src="{{ asset('/uploads/Temple/' . $temple->image) }}"
+                                                alt=""></td>
+                                         
                                             <td>
                                                 <div style="display: flex; align-items: center;">
-                                                    <a href="{{ route('tipno-delete', ['id' => $tipno->id]) }}"
+                                                    <a href="{{ route('temple-delete', ['id' => $temple->id]) }}"
                                                         onclick="confirmation(event)" style="margin-right: 10px;"><i
                                                             class="bi bi-trash" style="color: red;font-size:20px"></i></a>
-                                                    <a href="{{ route('tipno-edit', ['id' => $tipno->id]) }}"><i
+                                                    <a href="{{ route('temple-edit', ['id' => $temple->id]) }}"><i
                                                             class="bi-pencil-square"
                                                             style="color: green;font-size:20px"></i></a>
                                                 </div>
